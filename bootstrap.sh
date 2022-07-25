@@ -61,8 +61,6 @@ echo 'Installing Powerlevel10K'
 
 [[ ! -d $ZSH_CUSTOM/themes/powerlevel10k ]] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
-p10k configure
-
 # ohmyzsh plugins
 echo 'Installing Oh my zsh plugins'
 
