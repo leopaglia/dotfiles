@@ -1,8 +1,5 @@
 #!bin/bash
 
-# TODO: barrier
-# TODO: add aliases or symlinks for gnu utils 
-
 brew update
 brew upgrade
 
@@ -16,6 +13,10 @@ brew install gnutls
 brew install gnu-indent
 brew install gnu-getopt
 brew install grep
+
+# might replace this for individual aliases for granularity
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
 brew install wget --with-iri
 
@@ -54,6 +55,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 # sdkman
 curl -s "https://get.sdkman.io" | bash
+
+# barrier
+curl -o ~/Downloads/barrier.dmg https://github.com/debauchee/barrier/releases/download/v2.4.0/Barrier-2.4.0-release.dmg
+sudo hdiutil attach ~/Downloads/barrier.dmg
+sudo cp -R /Volumes/barrier/Barrier.app /Applications
+sudo hdiutil unmount /Volumes/barrier/Barrier.app
 
 # create SSH key pair without prompts (all default)
 # https://stackoverflow.com/a/43235320/4847712
