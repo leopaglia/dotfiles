@@ -51,30 +51,46 @@ brew install --cask docker
 brew cleanup
 
 # ohmyzsh
+echo 'Installing Oh my zsh!'
+
 [[ ! -d ~/.oh-my-zsh ]] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 export ZSH_CUSTOM="$HOME/.ohmyzsh/custom"
 
 # powerlevel10k
+echo 'Installing Powerlevel10K'
+
 [[ ! -d $ZSH_CUSTOM/themes/powerlevel10k ]] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
 # ohmyzsh plugins
+echo 'Installing Oh my zsh plugins'
+
 [[ ! -d $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ]] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]] && git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 # nvim plugins
+echo 'Downloading neovim plugins'
+
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # install nvim plugins
+echo 'Installing neovim plugins'
+
 vim -es -u ~/.config/nvim/init.vim +PlugInstall +qa\
 
 # nvm
+echo 'Installing nvm'
+
 sh -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh'
 
 # sdkman
+echo 'Installing sdkman'
+
 sh -c 'curl -s "https://get.sdkman.io"'
 
 # barrier
+echo 'Installing barrier'
+
 curl -o ~/Downloads/barrier.dmg https://github.com/debauchee/barrier/releases/download/v2.4.0/Barrier-2.4.0-release.dmg
 sudo hdiutil attach ~/Downloads/barrier.dmg
 sudo cp -R /Volumes/barrier/Barrier.app /Applications
@@ -82,6 +98,8 @@ sudo hdiutil unmount /Volumes/barrier/Barrier.app
 
 # create SSH key pair without prompts (all default)
 # https://stackoverflow.com/a/43235320/4847712
+echo 'Creating SSH key'
+
 ssh-keygen -q -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
 
 echo "\n\n PUBLIC KEY:"
