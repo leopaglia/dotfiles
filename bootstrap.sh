@@ -17,7 +17,7 @@ softwareupdate -i "$PROD" --verbose
 rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 
 # brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew update
 brew upgrade
@@ -41,7 +41,7 @@ brew install bat
 brew install thefuck
 brew install neovim
 brew install fzf
-$(brew --prefix)/opt/fzf/install
+$(brew --prefix)/opt/fzf/install --all
 
 brew install --cask iterm2
 brew install --cask google-chrome
