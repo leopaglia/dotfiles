@@ -53,9 +53,9 @@ brew cleanup
 # ohmyzsh
 echo 'Installing Oh my zsh!'
 
-[[ ! -d ~/.oh-my-zsh ]] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+[[ ! -d ~/.oh-my-zsh ]] && curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash --unattended
 
-export ZSH_CUSTOM="$HOME/.ohmyzsh/custom"
+export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
 # powerlevel10k
 echo 'Installing Powerlevel10K'
@@ -69,9 +69,9 @@ echo 'Installing Oh my zsh plugins'
 [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]] && git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 # nvim plugins
-echo 'Downloading neovim plugins'
+echo 'Downloading vim plug'
 
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | bash
 
 # nvm
 echo 'Installing nvm'
@@ -86,7 +86,7 @@ curl -s "https://get.sdkman.io" | bash
 # barrier
 echo 'Installing barrier'
 
-curl -o ~/Downloads/barrier.dmg https://github.com/debauchee/barrier/releases/download/v2.4.0/Barrier-2.4.0-release.dmg
+curl -fLo ~/Downloads/barrier.dmg https://github.com/debauchee/barrier/releases/download/v2.4.0/Barrier-2.4.0-release.dmg
 sudo hdiutil attach ~/Downloads/barrier.dmg
 sudo cp -R /Volumes/barrier/Barrier.app /Applications
 sudo hdiutil unmount /Volumes/barrier/Barrier.app
@@ -97,19 +97,17 @@ echo 'Creating SSH key'
 
 ssh-keygen -q -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
 
-echo "\n\n PUBLIC KEY:"
+echo "PUBLIC KEY:"
 
 cat ~/.ssh/id_rsa.pub
 
-echo "\n\n"
-
 # prompt and wait for keypress
-read -p "Add the SSH public key to github and press any key to continue...\n" -n1 -s
+read -p "Add the SSH public key to github and press any key to continue..." -n1 -s
 
 # create development folder
 echo 'Creating dev directory'
 
-mkdir ~/development
+[[ ! -d ~/development ]] && mkdir ~/development
 
 echo 'Cloning dotfiles project'
 
@@ -119,7 +117,8 @@ git clone git@github.com:leopaglia/dotfiles.git "$DOTFILES_REPO_LOCATION"
 
 echo 'Symlinking config files'
 
-cp -rsf "$DOTFILES_REPO_LOCATION/home"/. ~
+# gnu cp -- has recursive symlinking
+gcp -rsf "$DOTFILES_REPO_LOCATION/home"/. ~
 
 # install nvim plugins
 echo 'Installing neovim plugins'
