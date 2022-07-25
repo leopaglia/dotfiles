@@ -41,7 +41,6 @@ brew install bat
 brew install thefuck
 brew install neovim
 brew install fzf
-$(brew --prefix)/opt/fzf/install --all
 
 brew install --cask iterm2
 brew install --cask google-chrome
