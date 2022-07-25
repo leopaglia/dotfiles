@@ -1,5 +1,8 @@
 #!bin/bash
 
+echo "Please enter root password"
+sudo echo "Ok"
+
 brew update
 brew upgrade
 
