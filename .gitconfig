@@ -1,0 +1,10 @@
+[user]
+  name = Leonardo Paglialunga
+  email = paglialungalf@gmail.com
+[pull]
+  rebase = false
+[branch]
+  sort = -commiterdate
+[core]
+	eol = lf
+	text = auto
