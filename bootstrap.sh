@@ -76,12 +76,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # nvm
 echo 'Installing nvm'
 
-sh -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh'
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 # sdkman
 echo 'Installing sdkman'
 
-sh -c 'curl -s "https://get.sdkman.io"'
+curl -s "https://get.sdkman.io" | bash
 
 # barrier
 echo 'Installing barrier'
