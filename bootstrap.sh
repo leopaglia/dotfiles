@@ -73,11 +73,6 @@ echo 'Downloading neovim plugins'
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# install nvim plugins
-echo 'Installing neovim plugins'
-
-vim -es -u ~/.config/nvim/init.vim +PlugInstall +qa\
-
 # nvm
 echo 'Installing nvm'
 
@@ -112,10 +107,21 @@ echo "\n\n"
 read -p "Add the SSH public key to github and press any key to continue...\n" -n1 -s
 
 # create development folder
+echo 'Creating dev directory'
+
 mkdir ~/development
+
+echo 'Cloning dotfiles project'
 
 DOTFILES_REPO_LOCATION=~/development/dotfiles
 
 git clone git@github.com:leopaglia/dotfiles.git "$DOTFILES_REPO_LOCATION"
 
+echo 'Symlinking config files'
+
 cp -rsf "$DOTFILES_REPO_LOCATION/home"/. ~
+
+# install nvim plugins
+echo 'Installing neovim plugins'
+
+vim -es -u ~/.config/nvim/init.vim +PlugInstall +qa
