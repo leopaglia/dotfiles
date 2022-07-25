@@ -52,7 +52,7 @@ brew cleanup
 # ohmyzsh
 echo 'Installing Oh my zsh!'
 
-[[ ! -d ~/.oh-my-zsh ]] && curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash --unattended
+[[ ! -d ~/.oh-my-zsh ]] && curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash -s -- --unattended
 
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
