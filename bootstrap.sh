@@ -12,6 +12,9 @@ sudo echo "Ok"
 brew update
 brew upgrade
 
+# git
+brew install git
+
 # gnu utils
 brew install coreutils
 brew install findutils
