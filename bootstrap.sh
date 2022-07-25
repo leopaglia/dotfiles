@@ -1,4 +1,4 @@
-#!bin/bash
+#!/usr/bin/env bash
 
 # exit on error (non-true return value)
 set -e
