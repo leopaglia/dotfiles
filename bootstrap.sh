@@ -6,14 +6,23 @@ set -e
 echo "Please enter root password"
 sudo echo "Ok"
 
+# command line developer tools
+xcode-select --install
+sleep 1
+osascript <<-EOD
+    tell application "System Events"
+      tell process "Install Command Line Developer Tools"
+        keystroke return
+        click button "Agree" of window "License Agreement"
+      end tell
+    end tell
+EOD
+
 # brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew update
 brew upgrade
-
-# git
-brew install git
 
 # gnu utils
 brew install coreutils
@@ -38,6 +47,7 @@ brew install neovim
 brew install fzf
 $(brew --prefix)/opt/fzf/install
 
+brew install --cask iterm2
 brew install --cask google-chrome
 brew install --cask visual-studio-code
 brew install --cask docker
