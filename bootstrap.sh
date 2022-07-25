@@ -37,8 +37,6 @@ brew install grep
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
-brew install wget --with-iri
-
 brew install bat
 brew install thefuck
 brew install neovim
