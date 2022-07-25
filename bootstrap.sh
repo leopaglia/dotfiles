@@ -50,6 +50,8 @@ brew install --cask docker
 
 brew cleanup
 
+[[ -d ~/.oh-my-zsh ]] && rm -r ~/.oh-my-zsh
+
 # ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
