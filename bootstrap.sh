@@ -1,5 +1,8 @@
 #!bin/bash
 
+# exit on error (non-true return value)
+set -e
+
 echo "Please enter root password"
 sudo echo "Ok"
 
