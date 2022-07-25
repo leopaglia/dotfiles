@@ -1,7 +1,21 @@
 #!bin/bash
 
+# TODO: barrier
+# TODO: add aliases or symlinks for gnu utils 
+
 brew update
 brew upgrade
+
+# gnu utils
+brew install coreutils
+brew install findutils
+brew install gnu-tar
+brew install gnu-sed
+brew install gawk
+brew install gnutls
+brew install gnu-indent
+brew install gnu-getopt
+brew install grep
 
 brew install wget --with-iri
 
@@ -41,5 +55,24 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 # sdkman
 curl -s "https://get.sdkman.io" | bash
 
+# create SSH key pair without prompts (all default)
+# https://stackoverflow.com/a/43235320/4847712
+ssh-keygen -q -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
+
+echo "\n\n PUBLIC KEY:"
+
+cat ~/.ssh/id_rsa.pub
+
+echo "\n\n"
+
+# prompt and wait for keypress
+read -p "Add the SSH public key to github and press any key to continue...\n" -n1 -s
+
 # create development folder
 mkdir ~/development
+
+DOTFILES_REPO_LOCATION=~/development/dotfiles
+
+git clone git@github.com:leopaglia/dotfiles.git "$DOTFILES_REPO_LOCATION"
+
+cp -rsf "$DOTFILES_REPO_LOCATION/home"/. ~
