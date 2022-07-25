@@ -98,10 +98,13 @@ ssh-keygen -q -t rsa -N '' <<< $'\ny' >/dev/null 2>&1
 
 echo "PUBLIC KEY:"
 
+# display on screen
 cat ~/.ssh/id_rsa.pub
+# copy to clipboard
+cat ~/.ssh/id_rsa.pub | pbcopy
 
 # prompt and wait for keypress
-read -p "Add the SSH public key to github and press any key to continue..." -n1 -s
+read -p "The public key has been copied to clipboard. Add it to github and press any key to continue..." -n1 -s
 
 # create development folder
 echo 'Creating dev directory'
@@ -123,3 +126,7 @@ gcp -rsf "$DOTFILES_REPO_LOCATION/home"/. ~
 echo 'Installing neovim plugins'
 
 vim -es -u ~/.config/nvim/init.vim +PlugInstall +qa
+
+echo "All set! Press any key to quit." -n1 -s
+
+killall Terminal
