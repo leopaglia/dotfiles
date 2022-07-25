@@ -127,6 +127,8 @@ echo 'Installing neovim plugins'
 
 vim -es -u ~/.config/nvim/init.vim +PlugInstall +qa
 
+echo "Run p10k configure manually after restarting the terminal."
+
 echo "All set! Press any key to quit." -n1 -s
 
 killall Terminal
