@@ -7,16 +7,14 @@ echo "Please enter root password"
 sudo echo "Ok"
 
 # command line developer tools
-xcode-select --install
-sleep 1
-osascript <<-EOD
-    tell application "System Events"
-      tell process "Install Command Line Developer Tools"
-        keystroke return
-        click button "Agree" of window "License Agreement"
-      end tell
-    end tell
-EOD
+touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+PROD=$(softwareupdate -l |
+  grep "\*.*Command Line.*$(sw_vers -productVersion|awk -F. '{print $1"."$2}')" |
+  head -n 1 | awk -F"*" '{print $2}' |
+  sed -e 's/^ *//' |
+  tr -d '\n')
+softwareupdate -i "$PROD" --verbose
+rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 
 # brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
