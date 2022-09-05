@@ -42,6 +42,7 @@ brew install thefuck
 brew install neovim
 brew install fzf
 
+brew install --cask ferdi
 brew install --cask iterm2
 brew install --cask google-chrome
 brew install --cask visual-studio-code
@@ -90,6 +91,8 @@ sudo hdiutil attach ~/Downloads/barrier.dmg
 sudo cp -R /Volumes/barrier/Barrier.app /Applications
 sudo hdiutil unmount /Volumes/barrier/Barrier.app
 
+openssl req -x509 -nodes -days 365 -subj /CN=Barrier -newkey rsa:4096 -keyout ~/Library/Application Support/barrier/SSLBarrier.pem -out ~/Library/Application Support/barrier/SSLBarrier.pem
+
 # create SSH key pair without prompts (all default)
 # https://stackoverflow.com/a/43235320/4847712
 echo 'Creating SSH key'
@@ -120,7 +123,7 @@ git clone git@github.com:leopaglia/dotfiles.git "$DOTFILES_REPO_LOCATION"
 echo 'Symlinking config files'
 
 # gnu cp -- has recursive symlinking
-gcp -rsf "$DOTFILES_REPO_LOCATION/home"/. ~
+gcp -rsf "$DOTFILES_REPO_LOCATION/dotfiles"/. ~
 
 # install nvim plugins
 echo 'Installing neovim plugins'
