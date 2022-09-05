@@ -29,6 +29,9 @@ brew install grep
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
+brew tap homebrew/cask-fonts
+brew install font-meslo-lg-nerd-font
+
 brew install bat
 brew install thefuck
 brew install neovim
