@@ -37,6 +37,9 @@ alias ccat="/bin/cat"
 alias cat="bat"
 alias vim="nvim"
 
+# remove git cherry-pick alias (collides with GNU's copy)
+unalias gcp 
+
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
