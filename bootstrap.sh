@@ -48,6 +48,7 @@ brew install bat
 brew install thefuck
 brew install neovim
 brew install fzf
+brew install htop
 
 brew install --cask ferdi
 brew install --cask iterm2
