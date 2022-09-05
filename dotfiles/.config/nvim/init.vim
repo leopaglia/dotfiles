@@ -32,6 +32,7 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'lambdalisue/suda.vim'
 
 call plug#end()
 
@@ -43,3 +44,4 @@ map <silent> <C-b> :NERDTreeToggle<CR>
 
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+cmap w!! :w suda://%
