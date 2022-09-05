@@ -1,5 +1,4 @@
-# DEPS: brew update/upgrade - mkdir ~/development - apps install
-
+#!/bin/bash
 brew install dockutil
 
 dockutil --no-restart --remove all

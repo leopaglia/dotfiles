@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # cli dev tools
 touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 PROD=$(softwareupdate -l |
@@ -64,4 +66,4 @@ sudo hdiutil attach ~/Downloads/barrier.dmg
 sudo cp -R /Volumes/barrier/Barrier.app /Applications
 sudo hdiutil unmount /Volumes/barrier/Barrier.app
 
-openssl req -x509 -nodes -days 365 -subj /CN=Barrier -newkey rsa:4096 -keyout ~/Library/Application Support/barrier/SSLBarrier.pem -out ~/Library/Application Support/barrier/SSLBarrier.pem
+openssl req -x509 -nodes -days 365 -subj /CN=Barrier -newkey rsa:4096 -keyout ~/Library/Application\ Support/barrierSSLBarrier.pem -out ~/Library/Application\ Support/barrierSSLBarrier.pem

@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+cd "$SCRIPT_PATH"
 
 # exit on error (non-true return value)
 set -e
@@ -14,13 +16,13 @@ while true; do
 done 2>/dev/null &
 
 echo 'Updating system configurations'
-source ./mac/system.sh
-
-echo 'Configuring Dock'
-source ./mac/dock.sh
+bash ./mac/system.sh
 
 echo 'Installing apps'
-source ./mac/installs.sh
+bash ./mac/installs.sh
+
+echo 'Configuring Dock'
+bash ./mac/dock.sh
 
 # create SSH key pair without prompts (all default)
 # https://stackoverflow.com/a/43235320/4847712
@@ -47,7 +49,7 @@ git clone git@github.com:leopaglia/dotfiles.git "$DOTFILES_REPO_LOCATION"
 echo 'Symlinking config files'
 
 # gnu cp -- has recursive symlinking
-gcp -rsf "$DOTFILES_REPO_LOCATION/dotfiles"/. ~
+cp -rsf "$DOTFILES_REPO_LOCATION/dotfiles"/. ~
 
 # install nvim plugins
 echo 'Installing neovim plugins'
