@@ -16,13 +16,13 @@ while true; do
 done 2>/dev/null &
 
 echo 'Updating system configurations'
-bash ./mac/system.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/leopaglia/dotfiles/master/mac/system.sh)"
 
 echo 'Installing apps'
-bash ./mac/installs.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/leopaglia/dotfiles/master/mac/installs.sh)"
 
 echo 'Configuring Dock'
-bash ./mac/dock.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/leopaglia/dotfiles/master/mac/dock.sh)"
 
 # create SSH key pair without prompts (all default)
 # https://stackoverflow.com/a/43235320/4847712
