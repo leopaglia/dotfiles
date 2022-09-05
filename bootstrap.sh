@@ -49,7 +49,7 @@ git clone git@github.com:leopaglia/dotfiles.git "$DOTFILES_REPO_LOCATION"
 echo 'Symlinking config files'
 
 # gnu cp -- has recursive symlinking
-gcp -rsf "$DOTFILES_REPO_LOCATION/dotfiles"/. ~
+gcp -rsf "$DOTFILES_REPO_LOCATION/dotfiles/." ~
 
 # install nvim plugins
 echo 'Installing neovim plugins'
