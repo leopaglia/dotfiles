@@ -3,8 +3,15 @@
 # exit on error (non-true return value)
 set -e
 
-echo "Please enter root password"
-sudo echo "Ok"
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until everything has finished
+while true; do
+	sudo -n true
+	sleep 60
+	kill -0 "$$" || exit
+done 2>/dev/null &
 
 # command line developer tools
 touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
