@@ -11,7 +11,6 @@ dockutil --no-restart --add "/System/Applications/Mail.app"
 dockutil --no-restart --add "/System/Applications/Calendar.app"
 
 dockutil --no-restart --add /Applications --display folder
-dockutil --no-restart --add ~/development --display folder
 dockutil --add ~/Downloads
 
 killall Dock
