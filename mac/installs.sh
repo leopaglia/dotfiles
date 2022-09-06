@@ -46,6 +46,11 @@ brew install --cask docker
 
 brew cleanup
 
+code --install-extension esbenp.prettier-vscode
+code --install-extension MS-vsliveshare.vsliveshare
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension eamodio.gitlens
+
 # ohmyzsh
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
