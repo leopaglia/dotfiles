@@ -1,5 +1,5 @@
 #!/bin/bash
-brew install dockutil
+brew install --cask hpedrorodrigues/tools/dockutil
 
 dockutil --no-restart --remove all
 dockutil --no-restart --add "/Applications/Google Chrome.app"
