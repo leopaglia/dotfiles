@@ -59,12 +59,14 @@ curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --c
 
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.nvm/nvm.sh
 
 # node
 nvm install --lts
 
 # sdkman
 curl -s "https://get.sdkman.io" | bash
+source ~/.sdkman/bin/sdkman-init.sh
 
 # java
 sdk install java
