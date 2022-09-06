@@ -51,6 +51,11 @@ code --install-extension MS-vsliveshare.vsliveshare
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension eamodio.gitlens
 
+# Specify the preferences directory
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~"
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
 # ohmyzsh
 export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
