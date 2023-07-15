@@ -4,33 +4,42 @@ $ProgressPreference = 'SilentlyContinue'
 # Set permission to run a remote script
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-# Install scoop.sh
-Invoke-RestMethod get.scoop.sh | Invoke-Expression
-
 mkdir "C:\Users\Leonardo\Installers"
 
-Invoke-WebRequest -Uri "https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe" -OutFile "C:\Users\Leonardo\Installers\googledrivesetup.exe"
+Invoke-WebRequest -Uri "https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe" -OutFile "C:\Users\Leonardo\Installers\googledrive.exe"
 
 Invoke-WebRequest -Uri "http://www.epsxe.com/files/ePSXe205.zip" -OutFile "C:\Users\Leonardo\Installers\ePSXe205.zip"
+
+Invoke-WebRequest -Uri "https://www.native-instruments.com/fileadmin/downloads/Native-Access_2.exe" -OutFile "C:\Users\Leonardo\Installers\nativeaccess.exe"
+
+Invoke-WebRequest -Uri "https://alt-downloads.guitar-pro.com/gp7/stable/guitar-pro-7-setup.exe" -OutFile "C:\Users\Leonardo\Installers\guitarpro7.exe"
+
+Invoke-WebRequest -Uri "https://fael-downloads-prod.focusrite.com/customer/prod/downloads/Focusrite%20Control%20-%203.11.0.1983.exe"  -OutFile "C:\Users\Leonardo\Installers\focusritecontrol.exe"
+
+mkdir "C:\Program Files\Steinberg\VstPlugins"
+# TODO: copy vsts
+
+# Install scoop.sh
+Invoke-RestMethod get.scoop.sh | Invoke-Expression
 
 scoop bucket add extras
 scoop bucket add games
 scoop bucket add main
 scoop bucket add versions
-# scoop bucket add nonportable
+scoop bucket add nonportable
 
 # Programs
 scoop install extras/ferdium
 scoop install extras/googlechrome
 scoop install extras/libreoffice
-# scoop install extras/reaper
+scoop install extras/reaper
 scoop install extras/spotify
 scoop install extras/stash
 scoop install versions/steam
 scoop install extras/teamviewer
 scoop install extras/winrar
 scoop install versions/jdownloader
-# scoop install nonportable/grammarly-np
+scoop install nonportable/grammarly-np
 
 # Manga/Anime
 scoop install extras/houdoku
