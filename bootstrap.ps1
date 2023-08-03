@@ -10,6 +10,8 @@ Invoke-WebRequest -Uri "https://dl.google.com/drive-file-stream/GoogleDriveSetup
 
 Invoke-WebRequest -Uri "http://www.epsxe.com/files/ePSXe205.zip" -OutFile "C:\Users\Leonardo\Installers\ePSXe205.zip"
 
+Invoke-WebRequest -Uri "https://lol.secure.dyn.riotcdn.net/channels/public/x/installer/current/live.la2.exe" -OutFile "C:\Users\Leonardo\Installers\riotclient.zip"
+
 # Install scoop.sh
 Invoke-RestMethod get.scoop.sh | Invoke-Expression
 
