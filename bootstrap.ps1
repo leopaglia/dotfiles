@@ -4,7 +4,7 @@ $ProgressPreference = 'SilentlyContinue'
 # Set permission to run a remote script
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-mkdir "C:\Users\Leonardo\Installers"
+mkdir "C:\Users\pagli\Installers"
 
 Invoke-WebRequest -Uri "https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe" -OutFile "C:\Users\pagli\Installers\googledrive.exe"
 
